@@ -17,7 +17,6 @@ const HeroSection = () => {
           <br className="hidden sm:block" />
           <span className="text-gray-800">Technology</span>
         </h1>
-
         <p className="mt-6 text-gray-600 text-base sm:text-lg leading-relaxed">
           Offer a faster, safer, and contactless dining experience with a simple
           QR scan — no physical menus, just seamless service.
