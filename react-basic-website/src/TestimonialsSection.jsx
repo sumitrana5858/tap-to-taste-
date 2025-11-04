@@ -60,15 +60,16 @@ const testimonials = [
   },
 ];
 
+// 🧱 Single Testimonial Card
 const TestimonialCard = ({ testimonial }) => (
-  <div className="bg-white min-w-[300px] max-w-[300px] mx-4 p-6 rounded-2xl shadow-md hover:shadow-lg transition-all">
+  <div className="bg-white min-w-[260px] sm:min-w-[300px] max-w-[320px] mx-3 sm:mx-4 p-5 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300">
     <div className="flex items-center justify-center mb-4">
       <div className="bg-orange-500 text-white text-lg font-bold w-10 h-10 flex items-center justify-center rounded-full">
         {testimonial.initial}
       </div>
     </div>
-    <h3 className="font-semibold text-gray-800">{testimonial.name}</h3>
-    <p className="text-sm text-gray-500 mb-2">{testimonial.role}</p>
+    <h3 className="font-semibold text-gray-800 text-sm sm:text-base">{testimonial.name}</h3>
+    <p className="text-xs sm:text-sm text-gray-500 mb-2">{testimonial.role}</p>
     <p className="text-gray-700 text-sm leading-relaxed mb-3">
       {testimonial.feedback}
     </p>
@@ -76,33 +77,40 @@ const TestimonialCard = ({ testimonial }) => (
   </div>
 );
 
+// ✨ Main Section
 const TestimonialsSection = () => {
   const topTestimonials = testimonials.slice(0, 4);
   const bottomTestimonials = testimonials.slice(4, 8);
 
   return (
-    <section className="bg-[#fffdf8] py-16 text-center">
+    <section className="bg-[#fffdf8] py-12 sm:py-16 text-center">
       {/* Title */}
-      <div className="mb-10">
-        <p className="text-gray-600 mb-2">{`{ What Our Clients Are Saying }`}</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+      <div className="mb-10 px-4">
+        <p className="text-gray-600 mb-2 text-sm sm:text-base">
+          {`{ What Our Clients Are Saying }`}
+        </p>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
           Real Stories From Satisfied Customers
         </h2>
       </div>
 
       {/* Top Marquee - Right to Left */}
-      <Marquee speed={40} direction="left" pauseOnHover={false}>
-        {topTestimonials.map((t, index) => (
-          <TestimonialCard testimonial={t} key={`top-${index}`} />
-        ))}
-      </Marquee>
+      <div className="overflow-hidden">
+        <Marquee speed={40} direction="left" pauseOnHover gradient={false}>
+          {topTestimonials.map((t, index) => (
+            <TestimonialCard testimonial={t} key={`top-${index}`} />
+          ))}
+        </Marquee>
+      </div>
 
       {/* Bottom Marquee - Left to Right */}
-      <Marquee speed={40} direction="right" pauseOnHover={false} className="mt-10">
-        {bottomTestimonials.map((t, index) => (
-          <TestimonialCard testimonial={t} key={`bottom-${index}`} />
-        ))}
-      </Marquee>
+      <div className="overflow-hidden mt-10">
+        <Marquee speed={40} direction="right" pauseOnHover gradient={false}>
+          {bottomTestimonials.map((t, index) => (
+            <TestimonialCard testimonial={t} key={`bottom-${index}`} />
+          ))}
+        </Marquee>
+      </div>
     </section>
   );
 };

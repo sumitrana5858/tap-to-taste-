@@ -1,6 +1,6 @@
 import React from "react";
 
-const PricingSection = () => {
+const CardSection = () => {
   return (
     <section className="bg-[#fffdf8] py-16 flex flex-col items-center">
       <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
@@ -11,7 +11,6 @@ const PricingSection = () => {
           <button className="bg-[#0b132b] text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition w-100">
             Get Started →
           </button>
-
           <ul className="text-left mt-6 space-y-3 text-gray-700">
             <li className="flex items-center gap-2">
               ✅ Mobile-Friendly QR Code Access
@@ -31,7 +30,6 @@ const PricingSection = () => {
           </ul>
         </div>
 
-        {/* Premium Plan */}
         <div className="bg-white shadow-md rounded-2xl p-12 w-[490px] text-center border-2 border-orange-500 hover:shadow-xl transition relative">
           <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-sm font-semibold px-3 py-1 rounded-full">
             Most Popular
@@ -66,4 +64,4 @@ const PricingSection = () => {
   );
 };
 
-export default PricingSection;
+export default CardSection;

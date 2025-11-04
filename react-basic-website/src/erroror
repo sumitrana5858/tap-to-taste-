@@ -1,0 +1,156 @@
+import './App.css'
+import CustomerSection from './CostomerSection'
+import Header from './Header'
+import Navbar from './navbar'
+import SlideSection from './Slide'
+import FeatureSection from './FeatureSection'
+import CardSection from './CardSection'
+import PlanButton from './PlanButton'
+import PricingSection from "./PricingSection";
+import PerfectPlan from './PerfectPlan';
+import LimitedSection from './LimitedSection';
+import LimitedOfferSection from "./LimitedOfferSection";
+import TestimonialsSection from './TestimonialsSection';
+import ContactSection from './ContactSection';
+import Footer from './footer'
+import Home from './Home'
+import {BrowserRouter as Router ,Routes , Route} from "react-router-dom";
+
+unction App() {
+    return (
+      <div>
+        <h1>Hello React</h1>
+      </div>
+    );
+  }
+  
+
+  
+
+
+
+  ///import Featuresection from './Featuresection';
+  import PlanButton from './PlanButton';
+  import CardSection from './CardSection';
+  import LimitedSection from './LimitedSection';
+  import LimitedOfferSection from './LimitedOfferSection';
+  import TestimonialsSection from './TestimonialsSection';
+  import ContactSection from './ContactSection';
+  import Footer from './Footer';
+
+///
+
+
+<Featuresection />
+      <PlanButton />
+      <CardSection />
+      <LimitedSection />
+      <LimitedOfferSection />
+      <TestimonialsSection />
+      <ContactSection />
+      <Footer />
+
+
+
+
+
+
+
+
+
+
+      import React, { useState } from "react";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+
+const Signup = () => {
+  const [show, setShow] = useState(false);
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-green-50 to-green-100">
+      <div className="bg-white rounded-2xl shadow-md w-full max-w-md p-8">
+        {/* Top */}
+        <div className="flex flex-col items-center mb-6">
+          <div className="bg-green-500 text-white rounded-full p-3 mb-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+            </svg>
+          </div>
+          <h1 className="text-2xl font-semibold text-gray-800">Create Account</h1>
+          <p className="text-gray-500 text-sm mt-1">
+            Start managing your restaurant today
+          </p>
+        </div>
+
+        {/* Form */}
+        <form className="space-y-4">
+          <div>
+            <label className="block text-sm text-gray-600 mb-1">Full Name</label>
+            <input
+              type="text"
+              placeholder="Enter your full name"
+              className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-green-400 outline-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm text-gray-600 mb-1">Email Address</label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-green-400 outline-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm text-gray-600 mb-1">Password</label>
+            <div className="flex items-center border rounded-md px-3">
+              <input
+                type={show ? "text" : "password"}
+                placeholder="Create a password"
+                className="w-full py-2 outline-none"
+              />
+              <button type="button" onClick={() => setShow(!show)}>
+                {show ? (
+                  <EyeSlashIcon className="h-5 w-5 text-gray-500" />
+                ) : (
+                  <EyeIcon className="h-5 w-5 text-gray-500" />
+                )}
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm text-gray-600 mb-1">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              placeholder="Confirm your password"
+              className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-green-400 outline-none"
+            />
+          </div>
+
+          <button className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition">
+            Create Account
+          </button>
+        </form>
+
+        <p className="text-center text-sm text-gray-600 mt-4">
+          Already have an account?{" "}
+          <a href="/login" className="text-green-600 font-semibold hover:underline">
+            Sign in
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Signup;

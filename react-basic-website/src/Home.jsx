@@ -1,38 +1,33 @@
-import FeatureSection from "./FeatureSection";
-import Navbar from "./navbar";
-import Header from "./Header";
-import SlideSection from "./Slide";
-import CustomerSection from "./CostomerSection";
-import CardGrid from "./CardSection";
-import { Card } from "./CardSection";
-import PlanButton from "./PlanButton";
-import PerfectPlan from "./PerfectPlan";
-import PricingSection from "./PricingSection";
-import LimitedSection from "./LimitedSection";
-import LimitedOfferSection from "./LimitedOfferSection";
-import TestimonialsSection from "./TestimonialsSection";
-import ContactSection from "./ContactSection";
-import Footer from "./footer";
+// Home.jsx - Working Version
 
-const Home = () =>{
-    return(
-        <>
-        <Navbar />
-        <Header />
-        <SlideSection />
-        <CustomerSection />
-        <FeatureSection />
-        <Card/>
-        <CardGrid/>
-        <PlanButton />
-        <PerfectPlan/>
-        <PricingSection/>
-        <LimitedSection/>
-        <LimitedOfferSection/>
-        <TestimonialsSection />
-        <ContactSection />
-        <Footer/>
-        </>
-    )
+import HeroSection from './HeroSection';
+import Slide from './Slide';
+import Feature from './Feature';
+import PlanButton from './PlanButton';
+import CardSection from './CardSection';
+import LimitedSection from './LimitedSection';
+import LimitedOfferSection from './LimitedOfferSection';
+import TestimonialsSection from './TestimonialsSection';
+import ContactSection from './ContactSection';
+import Footer from './Footer'
+import CustomerSection from './CustomerSection'
+
+
+export default function Home() {
+  return (
+    <>
+    <HeroSection />
+      <Slide />
+      <CustomerSection />
+      <Feature />
+      <PlanButton />
+      <CardSection />
+      <LimitedSection />
+      <LimitedOfferSection />
+      <TestimonialsSection />
+      <ContactSection />
+      <Footer />
+      
+    </>
+  );
 }
-export default Home;

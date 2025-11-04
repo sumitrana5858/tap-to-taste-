@@ -1,59 +1,61 @@
-import React from 'react';
+import React from "react";
 
- export const Card = ({ title, description, imageUrl }) => {
+const CardSection = () => {
   return (
-    <div className="bg-yellow-50 p-6 rounded-lg shadow-md text-center">
-      <div className="flex justify-center mb-4">
-        <img src={imageUrl} alt={title} className="h-48 w-auto" />
+    <section className="bg-[#fffdf8] py-12 sm:py-16 flex flex-col items-center px-4 sm:px-6 md:px-12">
+      <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch w-full max-w-6xl">
+
+        {/* ===== Free Plan ===== */}
+        <div className="bg-white shadow-md rounded-2xl p-8 sm:p-10 md:p-12 w-full md:w-1/2 text-center border border-gray-200 hover:shadow-xl transition">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">Free</h2>
+          <p className="text-4xl sm:text-5xl font-bold mb-1">
+            ₹0<span className="text-lg font-medium">/month</span>
+          </p>
+          <p className="text-gray-500 mb-6 text-sm sm:text-base">
+            Simple, Smart Start
+          </p>
+          <button className="bg-[#0b132b] text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition w-full sm:w-auto">
+            Get Started →
+          </button>
+
+          <ul className="text-left mt-6 space-y-3 text-gray-700 text-sm sm:text-base">
+            <li>✅ Mobile-Friendly QR Code Access</li>
+            <li>✅ Real-Time Menu Updates</li>
+            <li>✅ Basic Usage Analytics</li>
+            <li className="text-gray-400">❌ Multilingual Menu Support</li>
+            <li className="text-gray-400">❌ Full White-Label Branding</li>
+          </ul>
+        </div>
+
+        {/* ===== Premium Plan ===== */}
+        <div className="bg-white shadow-md rounded-2xl p-8 sm:p-10 md:p-12 w-full md:w-1/2 text-center border-2 border-orange-500 hover:shadow-xl transition relative">
+          <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-xs sm:text-sm font-semibold px-3 py-1 rounded-full">
+            Most Popular
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-orange-600 mb-2">
+            Premium
+          </h2>
+          <p className="text-4xl sm:text-5xl font-bold mb-1">
+            ₹199<span className="text-lg font-medium">/month</span>
+          </p>
+          <p className="text-gray-500 mb-6 text-sm sm:text-base">
+            Premium Tools, Full Access
+          </p>
+          <button className="bg-orange-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-orange-600 transition w-full sm:w-auto">
+            Get Started →
+          </button>
+
+          <ul className="text-left mt-6 space-y-3 text-gray-700 text-sm sm:text-base">
+            <li>✅ POS System Integration</li>
+            <li>✅ Unlimited Menu Edits</li>
+            <li>✅ Daily Sales Reports</li>
+            <li>✅ Dedicated Account Manager</li>
+            <li>✅ Advanced Analytics & Guest Insights</li>
+          </ul>
+        </div>
       </div>
-      <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
-    </div>
+    </section>
   );
 };
 
-const CardGrid = () => {
-  const cards = [
-    {
-      title: "Customize Your Menu",
-      description: "Easily tailor menus with item images, tags and real-time previews, ensuring smooth layout control & beautiful dishes presentation.",
-      imageUrl: "https://taptotaste.novanectar.in/assets/feature1-B9kUmxKe.png",
-    },
-    {
-      title: "Branded QR Codes and Styling",
-      description: "Create your QR codes with custom logos, upload and titles to boost recognition. Upload or brand tags for a consistent, on-brand experience.",
-      imageUrl: "https://taptotaste.novanectar.in/assets/feature4-7veqfpVh.png",
-    },
-    {
-      title: "POS And Inventory Sync",
-      description: "Enjoy digital menu sync with POS & inventory systems for seamless operations. Real-time control over items & stock tracking in real-time.",
-      imageUrl: "https://taptotaste.novanectar.in/assets/feature3-D5UNVqeU.png",
-    },
-    {
-        title:"Secure Ordering And Integrated Payments",
-        description:"Enable fast, secure, and flexible ordering & payments — supporting cards, UPI, wallets, QR links or custom integrations.",
-        imageUrl:"https://taptotaste.novanectar.in/assets/feature4-7veqfpVh.png"
-    },
-       {
-        title:"Multi-Language Support",
-        description:"Offer a seamless experience in every territory, silently adapt to each visitor in their native language and menu settings.",
-        imageUrl:"https://taptotaste.novanectar.in/assets/feature5-WAM9TQnc.png",
-    },
-       {
-        title:"Analytics Dashboard",
-        description:"Track performance with an intuitive analytics dashboard that helps spot-selling items, customer behavior, and sales in real-time.",
-        imageUrl:"https://taptotaste.novanectar.in/assets/feature3-D5UNVqeU.png"
-    }
-
-  ];
-
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto p-4">
-      {cards.map((card, index) => (
-        <Card key={index} title={card.title} description={card.description} imageUrl={card.imageUrl} />
-      ))}
-    </div>
-  );
-};
-
-export default CardGrid;
+export default CardSection;

@@ -1,45 +1,88 @@
-import React from "react";
-import heroImg from "./assets/hero.png"; 
-const Header = () => {
+import React, { useState } from "react";
+import Logo from "./logo";
+import { FaArrowRight, FaEllipsisV, FaTimes } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "Features", path: "/features" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "About Us", path: "/about" },
+    { name: "Contact Us", path: "/contact" },
+    { name: "Blog", path: "/blog" },
+  ];
+
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between px-8 md:px-20 py-16 border-t- border-amber-400  bg-[#fffdf8]">
-      {/* Left Text Section */}
-      <div className="max-w-xl">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
-          Enhance Guest <br />
-          Experience with <br />
-          <span className="text-gray-900">Technology</span>
-        </h1>
-        <p className="mt-6 text-gray-600 text-lg leading-relaxed">
-          Offer a faster, safer, and contactless dining experience with a simple
-          QR scan — no physical menus, just seamless service.
-        </p>
+    <nav className="bg-white shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <Logo />
 
-        <div className="flex flex-col sm:flex-row gap-4 mt-8">
-          <button className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-orange-600 transition-all duration-300">
-            Get Started For Free →
-          </button>
-          <button className="border border-gray-400 text-gray-800 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-all duration-300">
-            Request a Quote →
+        {/* ===== Desktop Menu ===== */}
+        <ul className="hidden md:flex space-x-10 text-gray-700 font-medium">
+          {navItems.map((item, i) => (
+            <li key={i}>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-orange-500 font-semibold"
+                    : "hover:text-orange-500 transition-colors"
+                }
+              >
+                {item.name}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+
+        {/* ===== Desktop Button ===== */}
+        <div className="hidden md:flex">
+          <button className="flex items-center bg-orange-500 hover:bg-amber-600 px-5 py-2 rounded-3xl font-bold text-white transition">
+            Get Started for Free
+            <FaArrowRight className="ml-2" />
           </button>
         </div>
+
+        {/* ===== Mobile Menu Button ===== */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-2xl text-gray-800 focus:outline-none"
+        >
+          {menuOpen ? <FaTimes /> : <FaEllipsisV />}
+        </button>
       </div>
 
-      {/* Right Image Section */}
-      <div className="relative mt-10 md:mt-0 flex justify-center">
-        <img
-          src={heroImg}
-          alt="App Interface"
-          className="w-[280px] md:w-[350px] drop-shadow-xl"
-        />
-        <div className="absolute -left-20 bottom-5 hidden md:block">
-          <p className="absolute -top-6 left-16 text-sm text-orange-500 font-semibold">
-            QR Code
-          </p>
+      {/* ===== Mobile Dropdown ===== */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          menuOpen ? "max-h-[500px]" : "max-h-0"
+        }`}
+      >
+        <div className="bg-white border-t border-gray-200 px-6 py-4 space-y-4">
+          {navItems.map((item, i) => (
+            <NavLink
+              key={i}
+              to={item.path}
+              className="block text-gray-700 hover:text-orange-500 font-medium"
+              onClick={() => setMenuOpen(false)} // close menu when clicked
+            >
+              {item.name}
+            </NavLink>
+          ))}
+
+          {/* Mobile Buttons */}
+          <div className="flex flex-col gap-3 pt-3">
+            <button className="w-full flex items-center justify-center bg-orange-500 hover:bg-amber-600 text-white font-bold px-4 py-2 rounded-3xl transition">
+              Get Started for Free
+              <FaArrowRight className="ml-2 text-sm" />
+            </button>
+          </div>
         </div>
       </div>
-    </section>
+    </nav>
   );
-};
-
-export default Header;
+}
