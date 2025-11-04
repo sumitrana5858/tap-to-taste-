@@ -19,7 +19,7 @@ const HeroSection = () => {
         </h1>
         <p className="mt-6 text-gray-600 text-base sm:text-lg leading-relaxed">
           Offer a faster, safer, and contactless dining experience with a simple
-          QR scan — no physical menus, just seamless service.
+          QR scan — no physical menus, just seamless service..
         </p>
 
         {/* ===== Buttons ===== */}
